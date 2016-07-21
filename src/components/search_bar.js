@@ -23,7 +23,9 @@ class SearchBar extends Component{
   render() {
     return (
       <div>
-        <input onChange={(event) => this.setState({ term: event.target.value })} />
+        <input 
+          value={this.state.term}
+          onChange={(event) => this.setState({ term: event.target.value })} />
         Value of the input: {this.state.term}
       </div>
     );
@@ -40,3 +42,14 @@ export default SearchBar;
 
 /* STATE */
 // State is a plain JS object that is used to record and react to user events
+
+// Whenever you want to update a component, think about using state
+
+// Controlled Component:
+// A controlled component has its value set by state - 
+// only ever changes when state changes
+
+
+
+
+
