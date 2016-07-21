@@ -1,16 +1,32 @@
 import React, { Component } from 'react';
 
 // A functional component
+// (does not inherit from React Component, does not have state)
 // const SearchBar = () => {
 //   return <input />
 // };
 
 // A class-based component
 class SearchBar extends Component{
+  // Constructor func called automatically whenever a 
+  // new instance of SearchBar is created
+  // Used to initalize variables, state, etc.
+  constructor(props) {
+    // Calls Component's constuctor function
+    super(props);
+
+    this.state = { term: '' };
+  }
+
   // Create a new input element, pass it a prop 'onChange'
   // with a value of 'this.onInputChange'
   render() {
-    return <input onChange={(event) => console.log(event.target.value)} />;
+    return (
+      <div>
+        <input onChange={(event) => this.setState({ term: event.target.value })} />
+        Value of the input: {this.state.term}
+      </div>
+    );
   }
 
   // Event handler naming convention: 
