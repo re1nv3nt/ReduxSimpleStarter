@@ -2,11 +2,12 @@ import React, { Component } from 'react'; // Go into node_modules and get React 
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
+import VideoList from './components/video_list';
 
 const API_KEY = 'AIzaSyAUdKxC2if0h_n4iX5yo_GZBLVh_XpujGk';
 
 class App extends Component {
-  constuctor(props) {
+  constructor(props) {
     super(props);
 
     this.state = { videos: [] };
@@ -15,7 +16,6 @@ class App extends Component {
       // In ES6, can condense obj props with same key-value
       // names from { name: name } to { name }
       this.setState({ videos });
-      //console.log(data);
     });
   }
 
@@ -23,6 +23,7 @@ class App extends Component {
     return (
       <div>
         <SearchBar />
+        <VideoList videos={this.state.videos} />
       </div>
     );
   }
@@ -35,6 +36,9 @@ ReactDOM.render(<App />, document.querySelector('.container'));
 // React Downwards data-flow: 
 // Most parent component fetches information and pushes
 // it to child components
+
+// Pass data from parent to child comp by creating a
+// prop on the child tag (called passing a prop)
 
 
 
